@@ -20,7 +20,10 @@ public class Filme {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome){
+        if(nome.length()<=2 || nome.length()<99){
+            throw new FilmeException("O nome do filme deve possuir entre 2 e 99 caracteres");
+        }
         this.nome = nome;
     }
 
@@ -29,6 +32,9 @@ public class Filme {
     }
 
     public void setEstoque(Integer estoque) {
+        if (estoque<=0 || estoque>99){
+            throw new FilmeException("Valor de estoque inválido");
+        }
         this.estoque = estoque;
     }
 
@@ -37,6 +43,9 @@ public class Filme {
     }
 
     public void setPrecoLocacao(Double precoLocacao) {
+        if(precoLocacao<=1.00 || precoLocacao>9.99) {
+            throw new FilmeException("Valor locação inválido");
+        }
         this.precoLocacao = precoLocacao;
     }
 }
