@@ -1,5 +1,7 @@
 package local.model;
 
+import local.exception.FilmeException;
+
 public class Filme {
 
 
@@ -32,7 +34,7 @@ public class Filme {
     }
 
     public void setEstoque(Integer estoque) {
-        if (estoque<=0 || estoque>99){
+        if (estoque<0 || estoque>99){
             throw new FilmeException("Valor de estoque inválido");
         }
         this.estoque = estoque;
